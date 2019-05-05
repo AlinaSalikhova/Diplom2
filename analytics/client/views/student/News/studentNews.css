@@ -1,0 +1,7 @@
+div.hoverable{
+    padding: 10px;
+    border-bottom: 1px solid #d6d6d6;
+}
+i.fa.fa-reply{
+    float: right;
+}

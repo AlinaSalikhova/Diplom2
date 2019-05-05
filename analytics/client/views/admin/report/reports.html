@@ -1,0 +1,23 @@
+<template name="reports">
+    <div class="container">
+        <br><br>
+        <h1>Отчеты</h1>
+        <br>
+        <h4>Общий список пользователей</h4>
+        <button type="button" class="btn btn-info report1" id="general" >Сформировать</button>
+        <h3>Таблица пользователей</h3>
+        {{>report1}}
+        <br><br>
+        <h4>Список консультаций с датой проведения</h4>
+        <button type="button" class="btn btn-info" id="consults">Сформировать</button>
+        <br><br>
+        <h4>Список преподавателей</h4>
+        <button type="button" class="btn btn-info" id="users">Сформировать</button>
+        <br><br>
+        <h4>Список лекций на текущей неделе</h4>
+        <button type="button" class="btn btn-info" id="lectures">Сформировать</button>
+        <br><br>
+        <h4>Список практик на текущей неделе</h4>
+        <button type="button" class="btn btn-info" id="practice">Сформировать</button>
+    </div>
+</template>

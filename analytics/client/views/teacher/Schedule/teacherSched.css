@@ -1,0 +1,53 @@
+.row button{
+    float: right;
+}
+.addPair{
+    transition: transform 0.3s ease;
+}
+.addPair.mayClose{
+    transform: rotate(45deg);
+}
+.table-schedule td, .table-schedule th{
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table-schedule td i{
+    color:#999;
+    cursor: pointer;
+}
+.tooltip-holder{
+    position: absolute;
+    display: none;
+}
+.tooltiper {
+    position: relative;
+    padding: 20px;
+    width: 250px;
+    border-radius: 12px;
+    background: #fff;
+    border: 4px solid #008ff7;
+}
+.tooltiper:after, .tooltiper:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.tooltiper:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #fff;
+    border-width: 15px;
+    margin-top: -15px;
+}
+.tooltiper:before {
+    border-color: rgba(0, 143, 247, 0);
+    border-right-color: #008ff7;
+    border-width: 21px;
+    margin-top: -21px;
+}

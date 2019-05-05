@@ -1,0 +1,40 @@
+<template name="admin">
+    <div class="container">
+        <br><br>
+        <input type="file" class="upload-excel-file" multiple="multiple">
+        <br>
+        <from id="addteacherform">
+            <div class="form-group">
+                <h3>Добавление пользователя</h3>
+                <label for="">Логин</label>
+                <input type="text" class="form-control" id="login" placeholder="User1">
+            </div>
+            <div class="form-group">
+                <label for="">Пароль</label>
+                <input type="text" class="form-control" id="password" placeholder="password">
+            </div>
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" class="form-control" id="name" placeholder="Иван">
+            </div>
+            <div class="form-group">
+                <label for="surname">Фамилия</label>
+                <input type="text" class="form-control" id="surname" placeholder="Иванов">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Отчество</label>
+                <input type="text" class="form-control" id="lastname" placeholder="Иванович">
+            </div>
+            <div class="form-group">
+                <label for="chafedra">Кафедра</label>
+                <input type="text" class="form-control" id="chafedra" placeholder="ВМиМ">
+            </div>
+            <div class="form-group">
+                <label for="phone">Номер телефона</label>
+                <input type="text" class="form-control" id="phone" placeholder="89123456789">
+            </div>
+            <input type="submit" class="btn btn-default" value="Добавить">
+        </from>
+
+    </div>
+</template>

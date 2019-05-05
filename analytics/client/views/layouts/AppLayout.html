@@ -1,0 +1,83 @@
+<template name="AppLayout">
+    <body>
+
+    <header>
+
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="#">UTimeTable</a>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                    aria-controls="basicExampleNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+
+                <!-- Links -->
+                <ul class="navbar-nav ml-auto">
+                    {{#if isInRole 'admin' 'default-group'}}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/admin/add">Загрузить расписание
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/teacher/schedule">Просмотр
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/student/news">Запросы
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    {{/if}}
+                    {{#if isInRole 'teacher' 'default-group'}}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/teacher/schedule">Мое расписание
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/teacher/my">Моя страница</a>
+                        </li>
+                    {{/if}}
+
+
+                    {{#if currentUser}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link logout" href="#">Выход</a>
+                    </li>
+                    {{else}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/landing">Войти</a>
+                        </li>
+                    {{/if}}
+                </ul>
+            </div>
+            <!-- Collapsible content -->
+
+        </nav>
+        <!--/.Navbar-->
+
+    </header>
+
+<main>
+    {{>yield}}
+</main>
+    <footer>
+
+    </footer>
+    <!-- SCRIPTS -->
+    </body>
+</template>

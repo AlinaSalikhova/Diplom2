@@ -1,0 +1,18 @@
+<template name="report1">  <div class="users_table" id="report1">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Login</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each allUsers}}
+            <tr>
+                <td>{{username}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+
+</template>

@@ -1,0 +1,24 @@
+.calendar_table thead th{
+    border: none;
+    background:#0090f7;
+    text-align: center;
+    color: white;
+}
+.calendar_table table{
+    border: none;
+    word-wrap:break-word;
+    table-layout: fixed;
+    width:100%;
+}
+.calendar_header .card-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.calendar_header .card-header ul li a{
+    color: white !important;
+}
+.calendar_header .card-header ul li a:hover{
+    color:#333333 !important;
+}

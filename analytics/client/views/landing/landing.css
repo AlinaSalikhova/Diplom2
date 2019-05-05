@@ -1,0 +1,30 @@
+.login-holder{
+    width: 100vw;
+    height: 100vh;
+}
+#parti{
+    width: 100%;
+    height: 100%;
+    background-color: #4e96dd;
+    background-image: url('');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+.login-form{
+    position: absolute;
+    background: rgba(255,255,255, 0.8);
+    padding: 20px 40px;
+    border-radius: 5px ;
+
+}
+
+.form-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}

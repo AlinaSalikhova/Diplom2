@@ -1,0 +1,138 @@
+<template name="teacherSchedule">
+    <br><br>
+    <div class="container">
+        <h1>Расписание</h1>
+        <div class="row">
+            <button type="button" class="btn btn-outline-primary waves-effect">{{week}}</button>
+        </div>
+        <select class="group">
+            <option disabled selected>Выберите группу</option>
+            {{#each getGroups}}
+                <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+
+        <div class="schedule">
+            <br>
+            <div class="calendar_header">
+                <div class="card-header blue">
+                    <br>
+                    <!--Pagination-->
+                    <nav aria-label="pagination example">
+                        <ul class="pagination pagination-lg">
+
+                            <!--Arrow left-->
+                            <li class="page-item">
+                                <a class="page-link goHome" href="#" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link prevWeek" href="#" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+
+                            <!--Numbers-->
+                            <li class="page-item"><a class="page-link" href="#">{{rangeTitle}}</a></li>
+
+                            <!--Arrow right-->
+                            <li class="page-item">
+                                <a class="page-link nextWeek" href="#" aria-label="Next">
+                                    <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+            </div>
+            <div class="calendar_table">
+                <!--Table-->
+                <table class="table table-bordered table-schedule">
+
+                    <thead>
+                    <tr>
+                        <th></th>
+                        {{#each days}}
+                            <th>{{gdn(this)}}</th>
+                        {{/each}}
+                    </tr>
+                    </thead>
+
+                    <!--Table body-->
+                    <tbody>
+                    {{#each pair}}
+                        <tr>
+                            <th scope="row">{{getPairDate(@index)}}</th>
+                            {{#let rowIndex=@index}}
+                                {{#each days}}
+                                    {{#let colIndex=@index}}
+                                        {{#if hasPair rowIndex @index}}
+                                            <td>
+                                                {{{getPair rowIndex colIndex}}}
+                                            </td>
+                                        {{else}}
+                                            <td>
+                                                <i class="fa fa-plus fa-4x addPair" data-pair="{{rowIndex}}"
+                                                   data-day="{{@index}}"></i>
+                                            </td>
+                                        {{/if}}
+                                    {{/let}}
+                                {{/each}}
+                            {{/let}}
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="calendar_header">
+
+            </div>
+        </div>
+        <div class="tooltip-holder">
+            <div class="tooltiper">
+                <h3>Консультация</h3>
+                <form class="form" id="newEntity">
+                    <label for="subject">Предмет</label>
+                    <select id="subject" class="form-control">
+                        <option>МАТЕМАТИКА</option>
+                        <option>ИНОСТРАННЫЙ ЯЗЫК</option>
+                        <option>ВЫЧИСЛИТЕЛЬНАЯ МАТЕМАТИКА</option>
+                    </select>
+                    <br>
+                    <label for="subjectType">Тип</label>
+                    <select id="subjectType" class="form-control">
+                        <option>Лекция</option>
+                        <option>Практика</option>
+                        <option>Лабораторная</option>
+                    </select><br>
+                    <label for="room">Аудитория</label>
+                    <select id="room" class="form-control" required>
+                        <option disabled selected>Выберите аудиторию</option>
+                        <option>105</option>
+                        <option>106</option>
+                        <option>108</option>
+                        <option>301</option>
+                        <option>318</option>
+                    </select>
+                    <p class="text-danger">{{getErrorText}}</p><br>
+                    <h4>Неделя</h4>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="evenWeek" value="1">
+                        <label class="form-check-label" for="evenWeek">Первая</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="oddWeek" value="1">
+                        <label class="form-check-label" for="oddWeek">Вторая</label>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Соханить" {{isSubmitDisabled}}>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
