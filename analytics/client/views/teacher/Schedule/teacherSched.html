@@ -114,11 +114,9 @@
                     <label for="room">Аудитория</label>
                     <select id="room" class="form-control" required>
                         <option disabled selected>Выберите аудиторию</option>
-                        <option>105</option>
-                        <option>106</option>
-                        <option>108</option>
-                        <option>301</option>
-                        <option>318</option>
+                        {{#each rooms}}
+                            <option value="{{this.number}}">{{this.number}} ({{getHasComputers(this.hasComputers)}})</option>
+                        {{/each}}
                     </select>
                     <p class="text-danger">{{getErrorText}}</p><br>
                     <h4>Неделя</h4>
