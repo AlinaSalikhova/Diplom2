@@ -35,8 +35,7 @@ Template.teacherSchedule.helpers({
     'getPair':function (pairNum, date) {
         var week=moment().day(Template.instance().start.get()+1).week()%2==0?1:2;
         var p=SubjectEntities.find({/*group: Template.instance().group.get(),*/ pair:pairNum, day:date}).fetch().filter((a)=>a.weeks.indexOf(week)>-1 || a.weeks.length==0)[0];
-        console.log(p);
-        return '<p style="font-weight: bold">'+p.subject+'</p>'+p.teacher.surname+' '+p.teacher.name+' '+p.teacher.lastname+'<br> Ауд.'+p.room+'<br>'+p.subjectType;
+        return '<p style="font-weight: bold">'+p.subject+'</p> хуй хуевич<br> Ауд.'+p.room+'<br>'+p.subjectType;
     },
     'pair':function () {
         return [1,2,3,4,5,6];
@@ -55,6 +54,14 @@ Template.teacherSchedule.helpers({
 });
 
 Template.teacherSchedule.events({
+    'click .remove-pair': function (e) {
+        const pairNum = Number(e.target.dataset.pairnum);
+        const date = Number(e.target.dataset.date);
+        console.log(pairNum, date);
+        //var week=moment().day(Template.instance().start.get()+1).week()%2==0?1:2;
+        var p=SubjectEntities.findOne({ pair:pairNum, day:date});
+        SubjectEntities.remove({_id: p._id});
+    },
     'click .prevWeek':function (e,t) {
         t.start.set(t.start.get()-7);
         t.end.set(t.start.get()+6);

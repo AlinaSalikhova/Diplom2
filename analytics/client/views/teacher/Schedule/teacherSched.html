@@ -68,13 +68,17 @@
                     <tbody>
                     {{#each pair}}
                         <tr>
-                            <th scope="row">{{getPairDate(@index)}}</th>
+                            <th scope="row">
+                                {{getPairDate(@index)}}
+                            </th>
                             {{#let rowIndex=@index}}
                                 {{#each days}}
                                     {{#let colIndex=@index}}
                                         {{#if hasPair rowIndex @index}}
                                             <td>
                                                 {{{getPair rowIndex colIndex}}}
+                                                <br />
+                                                <button data-pairNum="{{rowIndex}}" data-date="{{colIndex}}" class="btn btn-primary remove-pair">удалить</button>
                                             </td>
                                         {{else}}
                                             <td>
