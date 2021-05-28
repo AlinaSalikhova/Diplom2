@@ -1,15 +1,21 @@
 Template.teacherSchedule.helpers({
     'currentDays':function () {
-        
+
     },
     'gdn':function (moment) {
        return moment.format("dd, D MMMM");
+    },
+    'getHasComputers': function (hasComputers) {
+        return hasComputers ? 'С компами' : 'Без компов';
     },
     'rangeTitle':function () {
         return moment().day(Template.instance().start.get()).format("D MMMM")+' - '+moment().day(Template.instance().end.get()-1).format("D MMMM")
     },
     'week':function () {
         return moment().day(Template.instance().start.get()+1).week()%2==0?'Первая неделя':'Вторая неделя';
+    },
+    'rooms': function () {
+        return Rooms.find();
     },
     'days':function () {
         var days=[];

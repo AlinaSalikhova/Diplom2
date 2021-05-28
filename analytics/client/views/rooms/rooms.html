@@ -1,0 +1,28 @@
+<template name="rooms">
+    <div class="container">
+        <br><br>
+        <from id="addroomform">
+            <div class="form-group">
+                <h3>Добавление аудитории</h3>
+                <label for="">Номер</label>
+                <input type="text" class="form-control" id="number" placeholder="105">
+            </div>
+            <div class="form-group">
+                <label for="">Кол-во мест</label>
+                <input type="number" class="form-control" id="capacity" placeholder="20">
+            </div>
+            <div class="form-group">
+                <label for="name">Накличие компов</label>
+                <input type="checkbox" id="hasComputers">
+            </div>
+            <div class="form-group">
+                <label for="name">Корпус</label>
+                <select id="building">
+                    <option value="Джамбула">Джамбула</option>
+                    <option value="Вознесенский">Вознесенский</option>
+                </select>
+            </div>
+            <input type="submit" class="btn btn-default" value="Добавить">
+        </from>
+    </div>
+</template>

@@ -14,6 +14,10 @@ Router.route('/student/news',function () {
     this.layout('AppLayout');
     this.render('studentNews')
 });
+Router.route('/admin/rooms', function() {
+    this.layout('AppLayout');
+    this.render('rooms');
+})
 Router.route('/teacher/schedule', function () {
     if(!Meteor.userId()){
         this.redirect('/landing')
